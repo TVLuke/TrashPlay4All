@@ -26,6 +26,7 @@ var player = {
 	getfiles: function()
 	{
 		alert("called");
+		var listoffiles = new Array();
 		window.requestFileSystem  = window.requestFileSystem || window.webkitRequestFileSystem;
 		window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, function(fileSystem) 
 		{
@@ -33,7 +34,6 @@ var player = {
 		   {
 		           create: true
 		       }, function(directory) {
-				var listoffiles = new Array();
 		        var directoryReader = directory.createReader();
 		        directoryReader.readEntries(function(entries) 
 				{
@@ -46,16 +46,9 @@ var player = {
 		            for (i=0; i<entries.length; i++) 
 					{
 		                alert("-"+i+" "+entries[i].name);
-						//alert("To uri "+entries[i].toURI());
-						entries[i].file(function(file)
-						{
-							alert(file.fullPath);
-						}, function(error)
-						{
-							alert("unable to retreive file.")
-						});
-						//alert("Full Path"+entries[i].fullPath);
-						//listoffiles.push(entries[i].fullPath);
+						alert("To uri "+entries[i].toURL());
+						//alert(entries[i].toURL());
+						listoffiles.push(entries[i].toURL());
 		            }
 		        }, function (error) {
 		            alert(error.code);
@@ -65,10 +58,10 @@ var player = {
 		}, function(error) {
 		   alert("can't even get the file system: " + error.code);
 		});
-        //for (i=0; i<listoffiles.length; i++) 
-		//{
-		//	alert(">"+listoffiles[i]);
-        //}
+        for (i=0; i<listoffiles.length; i++) 
+		{
+			alert(">"+listoffiles[i]);
+        }
 	},
 	
 	
