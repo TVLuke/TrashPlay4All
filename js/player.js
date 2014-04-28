@@ -1,6 +1,6 @@
 var player = {
 	
-
+		var listoffiles = new Array();
     // Application Constructor
     initialize: function() 
 	{
@@ -26,7 +26,6 @@ var player = {
 	getfiles: function()
 	{
 		alert("called");
-		var listoffiles = new Array();
 		window.requestFileSystem  = window.requestFileSystem || window.webkitRequestFileSystem;
 		window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, function(fileSystem) 
 		{
@@ -45,11 +44,15 @@ var player = {
 					}
 		            for (i=0; i<entries.length; i++) 
 					{
-		                alert("-"+i+" "+entries[i].name);
-						alert("To uri "+entries[i].toURL());
+						if(i==1)
+						{
+							alert("-"+i+" "+entries[i].name);
+							alert("To uri "+entries[i].toURL());
+						}
 						//alert(entries[i].toURL());
 						listoffiles.push(entries[i].toURL());
 		            }
+					alert("LENGTH"+listoffiles.length);
 		        }, function (error) {
 		            alert(error.code);
 		        });
@@ -60,7 +63,7 @@ var player = {
 		});
         for (i=0; i<listoffiles.length; i++) 
 		{
-			alert(">"+listoffiles[i]);
+			alert("> "+listoffiles[i]);
         }
 	},
 	
