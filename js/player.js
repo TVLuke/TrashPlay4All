@@ -21,6 +21,31 @@ var player = {
         player.receivedEvent('deviceready');
     },
 	
+	findmp3s: function(path)
+	{
+	    fileSystem.root.getDirectory("Downloads", 
+		{
+	     	create: true
+	    }, 
+		function(directory) 
+		{
+	         var directoryReader = directory.createReader();
+	         directoryReader.readEntries(function(entries) 
+			 {
+	             var i;
+	             for (i=0; i<entries.length; i++) 
+				 {
+	                 alert(entries[i].name);
+	             }
+	         }, 
+			 function (error) 
+			 {
+	             alert(error.code);
+	         });
+
+		 });
+	}
+	
 	getfiles: function()
 	{
 		alert("called")
@@ -29,31 +54,15 @@ var player = {
 		function gotFS(fileSystem) {
 		    alert("got filesystem"); 
 		    alert(fileSystem.root.fullPath);   
+			findmp3s(fileSystem.root.fullPath);
 		}
 		function fail() {
 		   alert("failed to get filesystem");
 		}
+		window.requestFileSystem  = window.requestFileSystem || window.webkitRequestFileSystem;
 		//http://stackoverflow.com/questions/8298124/list-files-inside-www-folder-in-phonegap
-		window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, function(fileSystem) {
-		   fileSystem.root.getDirectory("Downloads", {
-		           create: true
-		       }, function(directory) {
-
-		        var directoryReader = directory.createReader();
-		        directoryReader.readEntries(function(entries) {
-		            var i; 
-		            for (i=0; i<entries.length; i++) {
-		                alert(entries[i].name);
-		            }
-		        }, function (error) {
-		            alert(error.code);
-		        });
-
-		       } );
-		}, function(error) {
-		   alert("can't even get the file system: " + error.code);
-		});
 	},
+	
 	
     // Update DOM on a Received Event
     receivedEvent: function(id) 
