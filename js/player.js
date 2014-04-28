@@ -1,4 +1,6 @@
 var listoffiles;
+var my_media = null;
+var mediaTimer = null;
 
 var player = {
 	
@@ -27,6 +29,10 @@ var player = {
 	playsong: function(fileurl)
 	{
 		alert("playsong "+fileurl);
+		my_media = new Media(fileurl, function(){alert("success")}, function(error){alert("error")});
+		
+        // Play audio
+          my_media.play();
 	},
 	
 	selectrandomfile: function()
