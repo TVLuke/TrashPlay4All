@@ -79,7 +79,7 @@ var player = {
 						if(i==1)
 						{
 							alert("-"+i+" "+entries[i].name);
-							alert("To uri "+entries[i].toLocalURL());
+							alert("To uri "+entries[i].toURI());
 						}
 						//alert(entries[i].toURL());
 						listoffiles.push(entries[i].toURL());
