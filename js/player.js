@@ -26,8 +26,11 @@ var player = {
 	
 	selectrandomfile: function()
 	{
-			var randomnumber=Math.floor(Math.random()*listoffiles.length);
-			alert("-> "+randomnumber);
+		alert("find random");
+		alert("->"+listoffiles.length);
+		alert(Math.random());
+		var randomnumber=Math.floor(Math.random()*(listoffiles.length));
+		alert("-> "+randomnumber);
 	},
 	
 	getfiles: function()
