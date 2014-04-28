@@ -54,7 +54,7 @@ var player = {
 		function gotFS(fileSystem) {
 		    alert("got filesystem"); 
 		    alert(fileSystem.root.fullPath);   
-			findmp3s(fileSystem.root.fullPath);
+			player.findmp3s(fileSystem.root.fullPath);
 		}
 		function fail() {
 		   alert("failed to get filesystem");
@@ -67,7 +67,7 @@ var player = {
     // Update DOM on a Received Event
     receivedEvent: function(id) 
 	{
-		//console.log('Received Event: ' + id);
+		alert('Received Event: ' + id);
 				
         var parentElement = document.getElementById(id);
         var listeningElement = parentElement.querySelector('.listening');
