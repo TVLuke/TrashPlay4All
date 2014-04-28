@@ -1,6 +1,6 @@
 var player = {
 	
-    var listoffiles = new Array();
+
     // Application Constructor
     initialize: function() 
 	{
@@ -29,11 +29,11 @@ var player = {
 		window.requestFileSystem  = window.requestFileSystem || window.webkitRequestFileSystem;
 		window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, function(fileSystem) 
 		{
-		   fileSystem.root.getDirectory("Music/wakeUpSongs", 
+		   fileSystem.root.getDirectory("Music/WakeUpSongs", 
 		   {
 		           create: true
 		       }, function(directory) {
-
+				var listoffiles = new Array();
 		        var directoryReader = directory.createReader();
 		        directoryReader.readEntries(function(entries) 
 				{
@@ -46,9 +46,9 @@ var player = {
 		            for (i=0; i<entries.length; i++) 
 					{
 		                alert("-"+i+" "+entries[i].name);
-						alert("To uri "+entries[i].toURI());
-						alert("Full Path"+entries[i].fullPath);
-						listoffiles.push(entries[i].fullPath);
+						//alert("To uri "+entries[i].toURI());
+						//alert("Full Path"+entries[i].fullPath);
+						//listoffiles.push(entries[i].fullPath);
 		            }
 		        }, function (error) {
 		            alert(error.code);
@@ -58,10 +58,10 @@ var player = {
 		}, function(error) {
 		   alert("can't even get the file system: " + error.code);
 		});
-        for (i=0; i<listoffiles.length; i++) 
-		{
-			alert(">"+listoffiles[i]);
-        }
+        //for (i=0; i<listoffiles.length; i++) 
+		//{
+		//	alert(">"+listoffiles[i]);
+        //}
 	},
 	
 	
