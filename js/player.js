@@ -1,6 +1,7 @@
 var listoffiles;
 var my_media = null;
 var mediaTimer = null;
+var playing = false;
 
 var player = {
 	
@@ -28,19 +29,28 @@ var player = {
 	
 	playsong: function(fileurl)
 	{
-		alert("playsong "+fileurl);
-		my_media = new Media("Music/WakeUpSongs/"+fileurl
-		, function()
+		if(!playing)
 		{
-			alert("success")
-		}
-		, function(error)
-		{
-			alert('code: '    + error.code    + '\n' + 'message: ' + error.message + '\n');
-		});
+			playing=true;
+			alert("playsong "+fileurl);
+			my_media = new Media("DropBoxTrashPlay/"+fileurl
+			, function()
+			{
+				alert("success")
+				playing=false;
+				player.playsong(fileurl);
+			}
+			, function(error)
+			{
+				alert('code: '    + error.code    + '\n' + 'message: ' + error.message + '\n');
+				playing=false;
+				player.playsong(fileurl);
+			});
 		
-        // Play audio
-          my_media.play();
+	        // Play audio
+	          my_media.play();
+			
+		}
 	},
 	
 	selectrandomfile: function()
@@ -61,7 +71,7 @@ var player = {
 		window.requestFileSystem  = window.requestFileSystem || window.webkitRequestFileSystem;
 		window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, function(fileSystem) 
 		{
-		   fileSystem.root.getDirectory("Music/WakeUpSongs", 
+		   fileSystem.root.getDirectory("DropBoxTrashPlay", 
 		   {
 		           create: true
 		       }, function(directory) {
