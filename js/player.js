@@ -45,7 +45,7 @@ var player = {
 					}
 		            for (i=0; i<entries.length; i++) 
 					{
-		                alert(entries[i].name);
+		                alert("-"+i+" "+entries[i].name);
 						alert("To uri "+entries[i].toURI();)
 						alert("Full Path"+entries[i].fullPath);
 						listoffiles.push(entries[i].fullPath);
