@@ -1,13 +1,14 @@
 var player = {
 	
     // Application Constructor
-    initialize: function() {
-		//console.log("initialize");
+    initialize: function() 
+	{
+		alert("initialize");
         this.bindEvents();
     },
 	
     bindEvents: function() {
-		//console.log("binding");
+		alert("binding");
         document.addEventListener('deviceready', this.onDeviceReady, false);
     },
 	
@@ -17,7 +18,7 @@ var player = {
     // function, we must explicity call 'app.receivedEvent(...);'
     onDeviceReady: function() 
 	{
-		//console.log("on Ready");
+		alert("on Ready");
         player.receivedEvent('deviceready');
     },
 	
@@ -44,7 +45,7 @@ var player = {
 	         });
 
 		 });
-	}
+	},
 	
 	getfiles: function()
 	{
