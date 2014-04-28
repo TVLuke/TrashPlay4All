@@ -28,7 +28,7 @@ var player = {
 	{
 			var randomnumber=Math.floor(Math.random()*listoffiles.length);
 			alert("-> "+randomnumber);
-	}
+	},
 	
 	getfiles: function()
 	{
