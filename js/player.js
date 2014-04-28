@@ -46,7 +46,14 @@ var player = {
 		            for (i=0; i<entries.length; i++) 
 					{
 		                alert("-"+i+" "+entries[i].name);
-						alert("To uri "+entries[i].toURI());
+						//alert("To uri "+entries[i].toURI());
+						entries[i].file(function(file)
+						{
+							alert(file.fullPath);
+						}, function(error)
+						{
+							alert("unable to retreive file.")
+						});
 						//alert("Full Path"+entries[i].fullPath);
 						//listoffiles.push(entries[i].fullPath);
 		            }
