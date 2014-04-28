@@ -24,15 +24,18 @@ var player = {
 	
 	findmp3s: function(path)
 	{
+		alert("find files");
 	    fileSystem.root.getDirectory("Downloads", 
 		{
 	     	create: true
 	    }, 
 		function(directory) 
 		{
+			alert("function(directory)");
 	         var directoryReader = directory.createReader();
 	         directoryReader.readEntries(function(entries) 
 			 {
+				 alert("entries length"+entries.length);
 	             var i;
 	             for (i=0; i<entries.length; i++) 
 				 {
@@ -45,6 +48,7 @@ var player = {
 	         });
 
 		 });
+		 alert("DONE...")
 	},
 	
 	getfiles: function()
