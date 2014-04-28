@@ -64,7 +64,7 @@ var player = {
 						listoffiles.push(entries[i].toURL());
 		            }
 					alert("LENGTH"+listoffiles.length);
-					selectrandomfile();
+					player.selectrandomfile();
 		        }, function (error) {
 		            alert(error.code);
 		        });
