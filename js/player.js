@@ -22,7 +22,7 @@ var player = {
         player.receivedEvent('deviceready');
     },
 	
-	findmp3s: function(path)
+	findmp3s: function(filesystem)
 	{
 		alert("find files");
 	    fileSystem.root.getDirectory("Downloads", 
@@ -59,7 +59,7 @@ var player = {
 		function gotFS(fileSystem) {
 		    alert("got filesystem"); 
 		    alert(fileSystem.root.fullPath);   
-			player.findmp3s(fileSystem.root.fullPath);
+			player.findmp3s(filesystem);
 		}
 		function fail() {
 		   alert("failed to get filesystem");
