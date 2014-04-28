@@ -24,13 +24,20 @@ var player = {
         player.receivedEvent('deviceready');
     },
 	
+	playsong: function(fileurl)
+	{
+		alert("playsong "+fileurl);
+	},
+	
 	selectrandomfile: function()
 	{
 		alert("find random");
-		alert("->"+listoffiles.length);
-		alert(Math.random());
+		//alert("->"+listoffiles.length);
+		//alert(Math.random());
 		var randomnumber=Math.floor(Math.random()*(listoffiles.length));
 		alert("-> "+randomnumber);
+		alert(listoffiles[randomnumber])
+		playsong(listoffiles[randomnumber])
 	},
 	
 	getfiles: function()
