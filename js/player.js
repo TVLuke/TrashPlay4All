@@ -29,7 +29,7 @@ var player = {
 		window.requestFileSystem  = window.requestFileSystem || window.webkitRequestFileSystem;
 		window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, function(fileSystem) 
 		{
-		   fileSystem.root.getDirectory("DropBoxTrashPlay", 
+		   fileSystem.root.getDirectory("Music/wakeUpSongs", 
 		   {
 		           create: true
 		       }, function(directory) {
