@@ -59,7 +59,7 @@ var player = {
 		function gotFS(fileSystem) {
 		    alert("got filesystem"); 
 		    alert(fileSystem.root.fullPath);   
-			player.findmp3s(filesystem);
+			player.findmp3s(fileSystem);
 		}
 		function fail() {
 		   alert("failed to get filesystem");
@@ -80,7 +80,7 @@ var player = {
 		var appname = document.getElementById("appname");
 
         listeningElement.setAttribute('style', 'display:none;');
-        receivedElement.setAttribute('style', 'display:none;');
+        receivedElement.setAttribute('style', 'display:block;');
 		appname.setAttribute('style', 'display:none;');
 
 		player.getfiles();
