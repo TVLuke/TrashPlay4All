@@ -1,3 +1,5 @@
+var listoffiles;
+
 var player = {
 	
     // Application Constructor
@@ -24,7 +26,7 @@ var player = {
 	
 	getfiles: function()
 	{
-		var listoffiles = new Array();
+		listoffiles = new Array();
 		alert("called");
 		window.requestFileSystem  = window.requestFileSystem || window.webkitRequestFileSystem;
 		window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, function(fileSystem) 
@@ -61,11 +63,11 @@ var player = {
 		}, function(error) {
 		   alert("can't even get the file system: " + error.code);
 		});
-		alert("LENGTH"+listoffiles.length);
-        for (i=0; i<listoffiles.length; i++) 
-		{
-			alert("> "+listoffiles[i]);
-        }
+		//alert("LENGTH"+listoffiles.length);
+        //for (i=0; i<listoffiles.length; i++) 
+		//{
+		//	alert("> "+listoffiles[i]);
+        //}
 	},
 	
 	
