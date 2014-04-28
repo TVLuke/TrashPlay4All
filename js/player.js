@@ -10,7 +10,7 @@ var player = {
     },
 	
     bindEvents: function() {
-		alert("binding");
+		//alert("binding");
         document.addEventListener('deviceready', this.onDeviceReady, false);
     },
 	
@@ -20,9 +20,15 @@ var player = {
     // function, we must explicity call 'app.receivedEvent(...);'
     onDeviceReady: function() 
 	{
-		alert("on Ready");
+		//alert("on Ready");
         player.receivedEvent('deviceready');
     },
+	
+	selectrandomfile: function()
+	{
+			var randomnumber=Math.floor(Math.random()*listoffiles.length);
+			alert("-> "+randomnumber);
+	}
 	
 	getfiles: function()
 	{
@@ -39,7 +45,7 @@ var player = {
 		        directoryReader.readEntries(function(entries) 
 				{
 		            var i;
-					alert(""+entries.length);
+					//alert(""+entries.length);
 					if(entries.length==0)
 					{
 						alert("Your TrashPlay-Folder is empty. There is no music to play")
@@ -55,6 +61,7 @@ var player = {
 						listoffiles.push(entries[i].toURL());
 		            }
 					alert("LENGTH"+listoffiles.length);
+					selectrandomfile();
 		        }, function (error) {
 		            alert(error.code);
 		        });
@@ -70,11 +77,10 @@ var player = {
         //}
 	},
 	
-	
     // Update DOM on a Received Event
     receivedEvent: function(id) 
 	{
-		alert('Received Event: ' + id);
+		//alert('Received Event: ' + id);
 				
         var parentElement = document.getElementById(id);
         var listeningElement = parentElement.querySelector('.listening');
