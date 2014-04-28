@@ -1,5 +1,6 @@
 var player = {
 	
+    var listoffiles = new Array();
     // Application Constructor
     initialize: function() 
 	{
@@ -25,7 +26,6 @@ var player = {
 	getfiles: function()
 	{
 		alert("called");
-		var listoffiles = new Array();
 		window.requestFileSystem  = window.requestFileSystem || window.webkitRequestFileSystem;
 		window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, function(fileSystem) 
 		{
@@ -46,7 +46,7 @@ var player = {
 		            for (i=0; i<entries.length; i++) 
 					{
 		                //alert(entries[i].name);
-						alert(entries.fullPath);
+						alert(entries[i].fullPath);
 						listoffiles.push(entries[i].fullPath);
 		            }
 		        }, function (error) {
