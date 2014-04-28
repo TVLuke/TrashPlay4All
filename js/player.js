@@ -29,7 +29,7 @@ var player = {
 	playsong: function(fileurl)
 	{
 		alert("playsong "+fileurl);
-		my_media = new Media(fileurl
+		my_media = new Media("Music/WakeUpSongs/"+fileurl
 		, function()
 		{
 			alert("success")
@@ -82,7 +82,7 @@ var player = {
 							alert("To uri "+entries[i].toURI());
 						}
 						//alert(entries[i].toURL());
-						listoffiles.push(entries[i].toURL());
+						listoffiles.push(entries[i].name);
 		            }
 					alert("LENGTH"+listoffiles.length);
 					player.selectrandomfile();
