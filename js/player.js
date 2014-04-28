@@ -29,7 +29,15 @@ var player = {
 	playsong: function(fileurl)
 	{
 		alert("playsong "+fileurl);
-		my_media = new Media(fileurl, function(){alert("success")}, function(error){alert("error")});
+		my_media = new Media(fileurl
+		, function()
+		{
+			alert("success")
+		}
+		, function(error)
+		{
+			alert('code: '    + error.code    + '\n' + 'message: ' + error.message + '\n');
+		});
 		
         // Play audio
           my_media.play();
@@ -71,7 +79,7 @@ var player = {
 						if(i==1)
 						{
 							alert("-"+i+" "+entries[i].name);
-							alert("To uri "+entries[i].toURL());
+							alert("To uri "+entries[i].toLocalURL());
 						}
 						//alert(entries[i].toURL());
 						listoffiles.push(entries[i].toURL());
