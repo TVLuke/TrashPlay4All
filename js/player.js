@@ -41,7 +41,7 @@ var player = {
 
 		        var directoryReader = directory.createReader();
 		        directoryReader.readEntries(function(entries) {
-		            var i;
+		            var i; 
 		            for (i=0; i<entries.length; i++) {
 		                alert(entries[i].name);
 		            }
