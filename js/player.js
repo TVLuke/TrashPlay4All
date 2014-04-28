@@ -1,6 +1,5 @@
 var player = {
 	
-	var listoffiles = new Array();
     // Application Constructor
     initialize: function() 
 	{
@@ -25,7 +24,8 @@ var player = {
 	
 	getfiles: function()
 	{
-		alert("called")
+		alert("called");
+		var listoffiles = new Array();
 		window.requestFileSystem  = window.requestFileSystem || window.webkitRequestFileSystem;
 		window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, function(fileSystem) 
 		{
@@ -38,7 +38,7 @@ var player = {
 		        directoryReader.readEntries(function(entries) 
 				{
 		            var i;
-					alert(""+entries.length)
+					alert(""+entries.length);
 					if(entries.length==0)
 					{
 						alert("Your TrashPlay-Folder is empty. There is no music to play")
@@ -59,7 +59,7 @@ var player = {
 		});
         for (i=0; i<listoffiles.length; i++) 
 		{
-			alert(">"+listofentries[i]);
+			alert(">"+listoffiles[i]);
         }
 	},
 	
