@@ -43,7 +43,7 @@ var player = {
 		var randomnumber=Math.floor(Math.random()*(listoffiles.length));
 		alert("-> "+randomnumber);
 		alert(listoffiles[randomnumber])
-		playsong(listoffiles[randomnumber])
+		player.playsong(listoffiles[randomnumber])
 	},
 	
 	getfiles: function()
