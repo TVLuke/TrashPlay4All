@@ -1,5 +1,6 @@
 var player = {
 	
+	var listoffiles = new Array();
     // Application Constructor
     initialize: function() 
 	{
@@ -28,7 +29,7 @@ var player = {
 		window.requestFileSystem  = window.requestFileSystem || window.webkitRequestFileSystem;
 		window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, function(fileSystem) 
 		{
-		   fileSystem.root.getDirectory("Download", 
+		   fileSystem.root.getDirectory("DropBoxTrashPlay", 
 		   {
 		           create: true
 		       }, function(directory) {
@@ -37,9 +38,16 @@ var player = {
 		        directoryReader.readEntries(function(entries) 
 				{
 		            var i;
-					alert("entries.length")
-		            for (i=0; i<entries.length; i++) {
-		                alert(entries[i].name);
+					alert(""+entries.length)
+					if(entries.length==0)
+					{
+						alert("Your TrashPlay-Folder is empty. There is no music to play")
+					}
+		            for (i=0; i<entries.length; i++) 
+					{
+		                //alert(entries[i].name);
+						alert(entries.fullPath);
+						listoffiles.push(entries[i].fullPath);
 		            }
 		        }, function (error) {
 		            alert(error.code);
@@ -49,6 +57,10 @@ var player = {
 		}, function(error) {
 		   alert("can't even get the file system: " + error.code);
 		});
+        for (i=0; i<listoffiles.length; i++) 
+		{
+			alert(">"+listofentries[i]);
+        }
 	},
 	
 	
