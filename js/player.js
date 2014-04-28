@@ -61,6 +61,7 @@ var player = {
 		}, function(error) {
 		   alert("can't even get the file system: " + error.code);
 		});
+		alert("LENGTH"+listoffiles.length);
         for (i=0; i<listoffiles.length; i++) 
 		{
 			alert("> "+listoffiles[i]);
